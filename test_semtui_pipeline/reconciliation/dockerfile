@@ -1,0 +1,18 @@
+# Dockerfile for reconciliation.py located in project_folder/reconciliation/
+
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y git && apt-get clean
+
+# Copy requirements from the reconciliation folder
+COPY requirements.txt .
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy the reconciliation script from the current directory
+COPY reconciliation.py .
+
+CMD ["python", "reconciliation.py"]

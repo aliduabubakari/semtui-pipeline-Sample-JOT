@@ -1,0 +1,18 @@
+# Dockerfile for extension.py located in project_folder/extension/
+
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y git && apt-get clean
+
+# Copy requirements from the extension folder
+COPY requirements.txt .
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy the extension script from the current directory
+COPY extension.py .
+
+CMD ["python", "extension.py"]

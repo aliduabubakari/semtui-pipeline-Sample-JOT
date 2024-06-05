@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  load_and_modify:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: load_and_modify_container
+    volumes:
+      - .:/app
+    networks:
+      - my_network
+
+  reconciliation:
+    build:
+      context: ./reconciliation
+      dockerfile: Dockerfile
+    container_name: reconciliation_container
+    volumes:
+      - ./reconciliation:/app  # Map the reconciliation folder correctly
+    networks:
+      - my_network
+    depends_on:
+      - load_and_modify
+
+  extension:
+    build:
+      context: ./extension
+      dockerfile: Dockerfile
+    container_name: extension_container
+    volumes:
+      - ./extension:/app  # Map the extension folder correctly
+      - ./reconciliation/reconciled_table.json:/app/reconciled_table.json:ro  # Ensure it can access reconciled_table.json as a file
+    networks:
+      - my_network
+    depends_on:
+      - reconciliation
+
+networks:
+  my_network:
+    driver: bridge

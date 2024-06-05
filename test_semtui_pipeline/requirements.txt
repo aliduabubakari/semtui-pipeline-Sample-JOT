@@ -1,0 +1,5 @@
+requests
+pandas
+IPython
+python-dotenv
+git+https://github.com/aliduabubakari/semtui1.1.git

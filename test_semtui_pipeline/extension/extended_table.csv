@@ -1,0 +1,4 @@
+Fecha_id,Keyword,Impresiones,Clicks,City,County,Country,apparent_temperature_max,apparent_temperature_min,precipitation_sum,City URI,Latitude,Longitude
+2023-01-01,alquiler pisos colindres,1,0,Madrid,Community of Madrid,Spain,"12,7","0,8",0,"http://www.google.com/maps/place/40.41955,-3.69196",40.41955,-3.69196
+2023-01-01,alquiler pisos sestao,1,0,Barcelona,Catalonia,Spain,"16,5","4,2",0,"http://www.google.com/maps/place/41.38804,2.17001",41.38804,2.17001
+2023-01-01,steelcraft pedal car,1,0,Buffalo,New York,United States,"2,6","-2,8","2,4","http://www.google.com/maps/place/42.88545,-78.87846",42.88545,-78.87846

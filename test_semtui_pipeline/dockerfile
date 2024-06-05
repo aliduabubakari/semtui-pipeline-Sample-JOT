@@ -1,0 +1,19 @@
+# Dockerfile for load_and_modify.py
+
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y git && apt-get clean
+
+COPY requirements.txt requirements.txt
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy the script and any other necessary files
+COPY load_and_modify.py .
+COPY JOT_data_tutorial_notebook_tiny.csv .
+
+# Run the Python script
+CMD ["python", "load_and_modify.py"]
