@@ -19,6 +19,7 @@ The pipeline is orchestrated using Docker Compose to ensure each step is execute
 
 Create the following directory structure to store the necessary files and outputs:
 
+```
 project_folder/
 |-- load_and_modify.py
 |-- Dockerfile
@@ -34,7 +35,7 @@ project_folder/
     |-- Dockerfile
     |-- extension.py
     |-- requirements.txt
-
+```
 
 
 ## Docker Compose Configuration
